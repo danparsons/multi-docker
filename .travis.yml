@@ -6,7 +6,7 @@ services:
     - docker build -t danparsons/react-test -f ./client/Dockerfile.dev ./client
 
   script:
-    - docker run danparsons/react-test npm test -- --coverage
+    - docker run -e CI=true danparsons/react-test npm test
 
   after_success:
     - docker build -t danparsons/multi-client ./client
