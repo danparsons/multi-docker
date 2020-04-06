@@ -2,19 +2,19 @@ sudo: required
 services:
   - docker
 
-  before_install:
-    - docker build -t danparsons/react-test -f ./client/Dockerfile.dev ./client
+before_install:
+  - docker build -t danparsons/react-test -f ./client/Dockerfile.dev ./client
 
-  script:
-    - docker run -e CI=true danparsons/react-test npm test
+script:
+  - docker run -e CI=true danparsons/react-test npm test
 
-  after_success:
-    - docker build -t danparsons/multi-client ./client
-    - docker build -t danparsons/multi-nginx ./nginx
-    - docker build -t danparsons/multi-server ./server
-    - docker build -t danparsons/multi-worker ./worker
-    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-    - docker push danparsons/multi-client
-    - docker push danparsons/multi-nginx
-    - docker push danparsons/multi-server
-    - docker push danparsons/multi-worker
+after_success:
+  - docker build -t danparsons/multi-client ./client
+  - docker build -t danparsons/multi-nginx ./nginx
+  - docker build -t danparsons/multi-server ./server
+  - docker build -t danparsons/multi-worker ./worker
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - docker push danparsons/multi-client
+  - docker push danparsons/multi-nginx
+  - docker push danparsons/multi-server
+  - docker push danparsons/multi-worker
