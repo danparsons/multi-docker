@@ -5,18 +5,21 @@
             "name": "client",
             "image": "danparsons/multi-client",
             "hostname": "client",
+            "memoryReservation": 256,
             "essential": false
         },
         {
             "name": "server",
             "image": "danparsons/multi-server",
             "hostname": "api",
+            "memoryReservation": 256,
             "essential": false
         },
         {
             "name": "worker",
             "image": "danparsons/multi-worker",
             "hostname": "worker",
+            "memoryReservation": 256,
             "essential": false
         },
         {
@@ -24,6 +27,7 @@
             "image": "danparsons/multi-nginx",
             "hostname": "nginx",
             "essential": true,
+            "memoryReservation": 256,
             "portMappings": [
                 {
                     "hostPort": 80,
