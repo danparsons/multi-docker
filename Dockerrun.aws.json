@@ -5,21 +5,21 @@
             "name": "client",
             "image": "danparsons/multi-client",
             "hostname": "client",
-            "memory": 256,
+            "memory": 128,
             "essential": false
         },
         {
             "name": "server",
             "image": "danparsons/multi-server",
             "hostname": "api",
-            "memory": 256,
+            "memory": 128,
             "essential": false
         },
         {
             "name": "worker",
             "image": "danparsons/multi-worker",
             "hostname": "worker",
-            "memory": 256,
+            "memory": 128,
             "essential": false
         },
         {
@@ -27,7 +27,7 @@
             "image": "danparsons/multi-nginx",
             "hostname": "nginx",
             "essential": true,
-            "memory": 256,
+            "memory": 128,
             "portMappings": [
                 {
                     "hostPort": 80,
